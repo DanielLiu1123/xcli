@@ -1,6 +1,6 @@
 module github.com/DanielLiu1123/xcli
 
-go 1.23.3
+go 1.23.0
 
 require (
 	github.com/dghubble/oauth1 v0.7.3
