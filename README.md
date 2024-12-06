@@ -11,7 +11,7 @@ go install github.com/DanielLiu1123/xcli/cmd/xcli@latest
 ## Usage
 
 1. Go [Developer Portal](https://developer.x.com/en/portal/dashboard) to get your secrets.
-2. Use Environment variables to set your secrets or use flags to pass them.
+2. Use environment variables to set secrets or use flags to pass them.
 
 ```bash
 # Create a new tweet
