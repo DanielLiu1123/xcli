@@ -18,8 +18,7 @@ func NewCmdRoot(buildInfo *model.BuildInfo) *cobra.Command {
 		Version: buildInfo.Version,
 		Short:   "X CLI",
 		Long:    "X CLI",
-		Example: `
-  # Create a tweet
+		Example: `  # Create a tweet
   $ xcli tweet create --text "Hello, world"`,
 		PersistentPreRun: func(cmd *cobra.Command, args []string) {
 			overrideWithEnv(opt)
