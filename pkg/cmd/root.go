@@ -19,7 +19,11 @@ func NewCmdRoot(buildInfo *model.BuildInfo) *cobra.Command {
 		Short:   "X CLI",
 		Long:    "X CLI",
 		Example: `  # Create a tweet
-  $ xcli tweet create --text "Hello, world"`,
+  $ xcli tweet create --text "Hello, world"
+  
+  # Delete tweets
+  $ xcli tweet delete <tweet_id> <tweet_id>
+`,
 		PersistentPreRun: func(cmd *cobra.Command, args []string) {
 			overrideWithEnv(opt)
 		},
