@@ -16,6 +16,11 @@ func NewCmdTweetDelete(globalOpt *model.GlobalOpt) *cobra.Command {
 	c := &cobra.Command{
 		Use:   "delete",
 		Short: "Delete tweets",
+		PreRun: func(cmd *cobra.Command, args []string) {
+			if len(args) == 0 {
+				log.Fatal("Please provide at least one tweet ID")
+			}
+		},
 		Run: func(cmd *cobra.Command, args []string) {
 			deleteTweets(globalOpt, args)
 		},
