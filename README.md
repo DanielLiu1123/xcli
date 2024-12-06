@@ -19,6 +19,9 @@ xcli tweet create --text "Hello, world!" --api-key <API_KEY> --api-secret <API_S
 
 # Delete tweets
 xcli tweet delete <tweet_id> <tweet_id>
+
+# Lookup tweets
+xcli tweet lookup <tweet_id> <tweet_id>
 ```
 
 ## License

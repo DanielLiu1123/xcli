@@ -23,6 +23,9 @@ func NewCmdRoot(buildInfo *model.BuildInfo) *cobra.Command {
   
   # Delete tweets
   $ xcli tweet delete <tweet_id> <tweet_id>
+
+  # Lookup tweets
+  $ xcli tweet lookup <tweet_id> <tweet_id>
 `,
 		PersistentPreRun: func(cmd *cobra.Command, args []string) {
 			overrideWithEnv(opt)
