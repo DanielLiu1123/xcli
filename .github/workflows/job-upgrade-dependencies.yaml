@@ -1,0 +1,45 @@
+name: Upgrade Dependencies
+
+on:
+  schedule:
+    - cron: '0 11 * * *'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  upgrade-dependencies:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.23.3'
+
+      - name: Upgrade Dependencies
+        run: |
+          go get -u -v ./...
+          go mod tidy
+
+          git --no-pager diff go.mod go.sum
+          diff_count=$(git diff go.mod go.sum | wc -l | tr -d ' ')
+          
+          echo "diff_count=$diff_count" >> $GITHUB_ENV
+          
+          if [[ diff_count -eq 0 ]]; then
+            echo "No dependencies need to be upgraded"
+          fi
+
+      - name: Create Pull Request
+        if: env.diff_count != 0
+        uses: peter-evans/create-pull-request@v7
+        with:
+          commit-message: "Upgrade dependencies"
+          title: "Upgrade dependencies"
+          body: ""
+          branch: "upgrade-dependencies"
