@@ -7,7 +7,6 @@ type GlobalOpt struct {
 type Auth struct {
 	APIKey       string `json:"apiKey"`
 	APISecret    string `json:"apiSecret"`
-	BearerToken  string `json:"bearerToken"`
 	AccessToken  string `json:"accessToken"`
 	AccessSecret string `json:"accessSecret"`
 }
