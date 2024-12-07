@@ -34,7 +34,6 @@ func NewCmdRoot(buildInfo *model.BuildInfo) *cobra.Command {
 
 	c.PersistentFlags().StringVar(&opt.Auth.APIKey, "api-key", "", "API key")
 	c.PersistentFlags().StringVar(&opt.Auth.APISecret, "api-secret", "", "API secret")
-	c.PersistentFlags().StringVar(&opt.Auth.BearerToken, "bearer-token", "", "Bearer token")
 	c.PersistentFlags().StringVar(&opt.Auth.AccessToken, "access-token", "", "Access token")
 	c.PersistentFlags().StringVar(&opt.Auth.AccessSecret, "access-secret", "", "Access secret")
 
@@ -49,9 +48,6 @@ func overrideWithEnv(opt *model.GlobalOpt) {
 	}
 	if val := os.Getenv("API_SECRET"); val != "" {
 		opt.Auth.APISecret = val
-	}
-	if val := os.Getenv("BEARER_TOKEN"); val != "" {
-		opt.Auth.BearerToken = val
 	}
 	if val := os.Getenv("ACCESS_TOKEN"); val != "" {
 		opt.Auth.AccessToken = val
