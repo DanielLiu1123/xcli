@@ -18,6 +18,9 @@ func NewCmdTweet(globalOpt *model.GlobalOpt) *cobra.Command {
 
   # Delete tweets
   $ xcli tweet delete <tweet_id> <tweet_id>
+
+  # Lookup tweets
+  $ xcli tweet lookup <tweet_id> <tweet_id>
 `,
 	}
 

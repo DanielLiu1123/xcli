@@ -33,6 +33,9 @@ func NewCmdRoot(buildInfo *model.BuildInfo) *cobra.Command {
 
   # Lookup users by username
   $ xcli user lookup --by-username <username>,<username>
+
+  # Lookup the authenticated user
+  $ xcli user lookup --by-auth
 `,
 		PersistentPreRun: func(cmd *cobra.Command, args []string) {
 			overrideWithEnv(opt)

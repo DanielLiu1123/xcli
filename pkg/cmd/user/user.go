@@ -16,6 +16,9 @@ func NewCmdUser(globalOpt *model.GlobalOpt) *cobra.Command {
 
   # Lookup users by username
   $ xcli user lookup --by-username <username>,<username>
+
+  # Lookup the authenticated user
+  $ xcli user lookup --by-auth
 `,
 	}
 
