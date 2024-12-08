@@ -28,6 +28,9 @@ xcli user lookup --by-id <user_id>,<user_id>
 
 # Lookup users by username
 xcli user lookup --by-username <username>,<username>
+
+# Lookup authenticated user
+xcli user lookup --by-auth
 ```
 
 ## License
