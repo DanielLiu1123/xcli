@@ -50,7 +50,7 @@ func NewCmdUserLookup(globalOpt *model.GlobalOpt) *cobra.Command {
 
 func validate(opt *lookupOpt) {
 	if len(opt.byIds) == 0 && len(opt.byUsernames) == 0 && !opt.byAuth {
-		log.Fatal("Must specify at least one of --by-id, --by-username, or --by-auth")
+		log.Fatal("Must specify one of --by-id, --by-username, or --by-auth")
 	}
 	if len(opt.byIds) > 0 && len(opt.byUsernames) > 0 {
 		log.Fatal("Cannot specify both --by-ids and --by-usernames at the same time")
