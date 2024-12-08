@@ -24,6 +24,9 @@ func NewCmdTweetLookup(globalOpt *model.GlobalOpt) *cobra.Command {
 		Run: func(cmd *cobra.Command, args []string) {
 			lookupTweets(globalOpt, args)
 		},
+		Example: `  # Lookup tweets
+  $ xcli tweet lookup <tweet_id> <tweet_id>
+`,
 	}
 
 	return c
@@ -32,7 +35,14 @@ func NewCmdTweetLookup(globalOpt *model.GlobalOpt) *cobra.Command {
 func lookupTweets(globalOpt *model.GlobalOpt, ids []string) {
 	x := client.NewXClient(globalOpt.Auth)
 
-	resp, err := x.TweetLookup(context.Background(), ids, twitter.TweetLookupOpts{})
+	resp, err := x.TweetLookup(context.Background(), ids, twitter.TweetLookupOpts{
+		Expansions:  model.AllExpansions,
+		MediaFields: model.AllMediaFields,
+		PlaceFields: model.AllPlaceFields,
+		PollFields:  model.AllPollFields,
+		TweetFields: model.ALLTweetFields,
+		UserFields:  model.AllUserFields,
+	})
 	if err != nil {
 		log.Fatal(err)
 	}

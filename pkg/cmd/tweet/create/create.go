@@ -25,6 +25,9 @@ func NewCmdTweetCreate(globalOpt *model.GlobalOpt) *cobra.Command {
 		Run: func(cmd *cobra.Command, args []string) {
 			createTweet(globalOpt, opt)
 		},
+		Example: `  # Create a tweet
+  $ xcli tweet create --text "Hello, world"
+`,
 	}
 
 	c.Flags().StringVar(&opt.Text, "text", "", "Text of the tweet")
