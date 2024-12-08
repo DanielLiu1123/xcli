@@ -13,6 +13,12 @@ func NewCmdTweet(globalOpt *model.GlobalOpt) *cobra.Command {
 	c := &cobra.Command{
 		Use:   "tweet",
 		Short: "Manage tweets",
+		Example: `  # Create a tweet
+  $ xcli tweet create --text "Hello, world"
+
+  # Delete tweets
+  $ xcli tweet delete <tweet_id> <tweet_id>
+`,
 	}
 
 	c.AddCommand(create.NewCmdTweetCreate(globalOpt))

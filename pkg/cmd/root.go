@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"github.com/DanielLiu1123/xcli/pkg/cmd/tweet"
+	"github.com/DanielLiu1123/xcli/pkg/cmd/user"
 	"github.com/DanielLiu1123/xcli/pkg/model"
 	"github.com/spf13/cobra"
 	"os"
@@ -17,7 +18,7 @@ func NewCmdRoot(buildInfo *model.BuildInfo) *cobra.Command {
 		Use:     "xcli",
 		Version: buildInfo.Version,
 		Short:   "X CLI",
-		Long:    "X CLI",
+		Long:    "Command line for X (Twitter)",
 		Example: `  # Create a tweet
   $ xcli tweet create --text "Hello, world"
   
@@ -26,6 +27,12 @@ func NewCmdRoot(buildInfo *model.BuildInfo) *cobra.Command {
 
   # Lookup tweets
   $ xcli tweet lookup <tweet_id> <tweet_id>
+
+  # Lookup users by ID
+  $ xcli user lookup --by-id <user_id>,<user_id>
+
+  # Lookup users by username
+  $ xcli user lookup --by-username <username>,<username>
 `,
 		PersistentPreRun: func(cmd *cobra.Command, args []string) {
 			overrideWithEnv(opt)
@@ -38,6 +45,7 @@ func NewCmdRoot(buildInfo *model.BuildInfo) *cobra.Command {
 	c.PersistentFlags().StringVar(&opt.Auth.AccessSecret, "access-secret", "", "Access secret")
 
 	c.AddCommand(tweet.NewCmdTweet(opt))
+	c.AddCommand(user.NewCmdUser(opt))
 
 	return c
 }

@@ -22,6 +22,12 @@ xcli tweet delete <tweet_id> <tweet_id>
 
 # Lookup tweets
 xcli tweet lookup <tweet_id> <tweet_id>
+
+# Lookup users by user ID
+xcli user lookup --by-id <user_id>,<user_id>
+
+# Lookup users by username
+xcli user lookup --by-username <username>,<username>
 ```
 
 ## License

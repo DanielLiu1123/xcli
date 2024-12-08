@@ -24,6 +24,9 @@ func NewCmdTweetDelete(globalOpt *model.GlobalOpt) *cobra.Command {
 		Run: func(cmd *cobra.Command, args []string) {
 			deleteTweets(globalOpt, args)
 		},
+		Example: `  # Delete tweets
+  $ xcli tweet delete <tweet_id> <tweet_id>
+`,
 	}
 
 	return c
