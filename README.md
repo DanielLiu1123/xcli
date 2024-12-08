@@ -18,7 +18,7 @@ go build cmd/xcli/main.go -o xcli
 ## Usage
 
 1. Go [Developer Portal](https://developer.x.com/en/portal/dashboard) to get your secrets.
-2. Use environment variables to set secrets or use flags to pass them.
+2. Use environment variables or use flags to pass your secrets.
 
 ```bash
 # Use environment variables, has higher priority than flags
