@@ -12,7 +12,7 @@ Build from source:
 
 ```bash
 make
-go build cmd/xcli/main.go -o xcli
+go build -o xcli cmd/xcli/main.go 
 ```
 
 ## Usage
